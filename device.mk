@@ -21,7 +21,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     bootctrl.sc2
 
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
+PRODUCT_STATIC_BOOT_CONTROL_HAL += \
     bootctrl.sc2 \
     libgptutils \
     libz \
