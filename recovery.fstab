@@ -1,35 +1,35 @@
-/system            ext4     /dev/block/system            flags=display=system;slotselect
-/system_ext        ext4     /dev/block/system_ext        flags=display=system_ext;slotselect
-/vendor            ext4     /dev/block/vendor            flags=display=vendor;slotselect
-/odm               ext4     /dev/block/odm               flags=display=odm;slotselect
-/product           ext4     /dev/block/product           flags=display=product;slotselect
-/misc              emmc     /dev/block/by-name/misc      flags=display=misc
-/bootloader        emmc     /dev/block/bootloader        flags=display=bootloader;slotselect
-/logo              emmc     /dev/block/logo              flags=display=logo
-/vbmeta            emmc     /dev/block/vbmeta            flags=display=vbmeta;slotselect
-/vbmeta_system     emmc     /dev/block/vbmeta_system     flags=display=vbmeta_system;slotselect
-/recovery          emmc     /dev/block/recovery          flags=display=recovery;slotselect
-/boot              emmc     /dev/block/boot              flags=display=boot;slotselect
-/misc              emmc     /dev/block/misc              flags=display=misc
-/dtb               emmc     /dev/block/dtbo              flags=display=dtb;slotselect
-/param             ext4     /dev/block/param             flags=display=param
-/odm_ext           ext4     /dev/block/odm_ext           flags=display=odm_ext;slotselect
-/oem               ext4     /dev/block/oem               flags=display=oem;slotselect
-/metadata          ext4     /dev/block/metadata          flags=display=metadata
-/tee               ext4     /dev/block/tee               flags=display=tee
-/cache             ext4     /dev/block/cache             flags=display=cache
-/data              ext4     /dev/block/userdata          flags=display=data
-/sdcard            vfat     /dev/block/mmcblk1p1         flags=display=sdcard
-/sdcard            vfat     /dev/block/mmcblk1p2         flags=display=sdcard
-/sdcard            vfat     /dev/block/mmcblk1p3         flags=display=sdcard
-/sdcard            vfat     /dev/block/mmcblk1p4         flags=display=sdcard
-/sdcard            vfat     /dev/block/mmcblk1p5         flags=display=sdcard
-/sdcard            vfat     /dev/block/mmcblk1p6         flags=display=sdcard
-/sdcard            vfat     /dev/block/mmcblk2p1         flags=display=sdcard
-/sdcard            vfat     /dev/block/mmcblk2p2         flags=display=sdcard
-/sdcard            vfat     /dev/block/mmcblk2p3         flags=display=sdcard
-/sdcard            vfat     /dev/block/mmcblk2p4         flags=display=sdcard
-/sdcard            vfat     /dev/block/mmcblk2p5         flags=display=sdcard
-/sdcard            vfat     /dev/block/mmcblk2p6         flags=display=sdcard
-/sdcard            vfat     /dev/block/mmcblk            flags=display=sdcard
-/udisk             auto     /dev/block/sd##              flags=display=udisk
+# Android fstab file.
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+
+#<src>                                                 <mnt_point>                        <type>  <mnt_flags and options>                              <fs_mgr_flags>
+system                                                  /system                           ext4    ro,barrier=1                                         wait,slotselect,logical,first_stage_mount,backup=1
+system_ext                                              /system_ext                       ext4    ro,barrier=1                                         wait,slotselect,logical,first_stage_mount,backup=1
+vendor                                                  /vendor                           ext4    ro,barrier=1                                         wait,slotselect,logical,first_stage_mount,backup=1
+product                                                 /product                          ext4    ro,barrier=1                                         wait,slotselect,logical,first_stage_mount,backup=1
+odm                                                     /odm                              ext4    ro,barrier=1                                         wait,slotselect,logical,first_stage_mount,backup=1
+
+#/dev/block/bootloader                                  /bootloader                       emmc    defaults                                            wait,slotselect
+/dev/block/recovery_a                                   /recovery                         emmc    defaults                                            wait,slotselect,backup=1
+/dev/block/boot_a                                       /boot                             emmc    defaults                                            wait,slotselect,backup=1
+/dev/block/metadata                                     /metadata                         ext4    noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic    wait,check,formattable,first_stage_mount
+/dev/block/userdata                                     /data                             ext4    noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic    latemount,wait,check,quota,formattable,reservedsize=32M,backup=1
+/dev/block/param                                        /mnt/vendor/param                 ext4    noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic    wait,check,quota,formattable
+/dev/block/factory                                      /mnt/vendor/factory               vfat    noatime,nodiratime,nosuid,noexec,dmask=0022                      wait,check
+/dev/block/tcluserdata                                  /userdata                         ext4    noatime,nosuid,nodev                                 wait,block_validity,nodiscard,data=ordered,journal_checksum
+/dev/block/platform/soc/fe08c000.mmc/by-name/misc       /misc                             emmc    defaults                                                         defaults
+/devices/platform/soc/fe08a000.sd/mmc_host/mmc1/mmc1:*                                    auto    auto    defaults                                             display=SD
+/devices/platform/soc/soc:usb@fde00000/fde00000.dwc3/xhci-hcd.0.auto/sda*                 auto    auto    defaults                                             display=USB
+#/dev/block/sda1                                        auto                              auto    defaults                                                  display=usb_otg
+#
+#
+/dev/block/vendor_boot_a                               /vendor_boot                      emmc     defaults      wait,slotselect
+/dev/block/cache                                       /cache                            ext4    noatime,nosuid,nodev,noexec                          wait
+/dev/block/oem_a                                       /oem                              ext4    ro,barrier=1                                         wait,slotselect,first_stage_mount
+/dev/block/odm_ext_a                                   /mnt/vendor/odm_ext               ext4    ro,noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic    wait,check,slotselect,first_stage_mount
+#/dev/block/persist                                    /persist                          ext4    noatime,nosuid,nodev                                 wait,block_validity,nodiscard,data=ordered,journal_checksum
+#/dev/block/tee                                        /mnt/vendor/tee                   ext4    noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic    wait,check,formattable
+/dev/block/tclconfig_a                                 /tclconfig                        ext4    ro,nodev                                             wait,slotselect
+/dev/block/vbmeta                                      /vbmeta                           emmc     defaults                                            wait,slotselect                                          
+/dev/block/dtbo                                        /dtb                              emmc     defaults                                            defaults,slotselect
+/dev/block/logo                                        /logo                             emmc     defaults                                            defaults
