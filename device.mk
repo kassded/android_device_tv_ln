@@ -21,7 +21,7 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-service
 
 PRODUCT_PACKAGES += \
-    bootctrl
+    bootctrl.sc2
 
 
 PRODUCT_PACKAGES += \
