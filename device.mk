@@ -31,10 +31,7 @@ PRODUCT_PACKAGES += \
     bootctrl.t982_ar31a8.recovery \
     
 PRODUCT_PACKAGES += \
-    bootctrl.t982_ar31a8 \
-    libgptutils \
-    libz \
-    libcutils    
+    bootctrl.t982_ar31a8 \  
 
 PRODUCT_PACKAGES += \
     otapreopt_script \
