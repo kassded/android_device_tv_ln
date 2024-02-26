@@ -1,9 +1,19 @@
 #
-# Copyright (C) 2023 The Android Open Source Project
-# Copyright (C) 2023 SebaUbuntu's TWRP device tree generator
+# Copyright (C) 2024 The Android Open Source Project
+# Copyright (C) 2024 SebaUbuntu's TWRP device tree generator
 #
 # SPDX-License-Identifier: Apache-2.0
 #
+
+# Configure base.mk
+$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
+
+# Configure core_64_bit_only.mk
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
+
+# Configure twrp
+$(call inherit-product, vendor/twrp/config/common.mk)
+
 LOCAL_PATH := device/tcl/t982_ar31a8
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
@@ -16,13 +26,18 @@ AB_OTA_POSTINSTALL_CONFIG += \
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
     android.hardware.boot@1.0-impl.recovery \
-    bootctrl.sc2 \
-    bootctrl.sc2.recovery \
-    android.hardware.boot@1.0-service
-
+    android.hardware.boot@1.0-service \
+    bootctrl.$(PRODUCT_PLATFORM) \
+    bootctrl.$(PRODUCT_PLATFORM).recovery \
+    
 PRODUCT_PACKAGES += \
-    bootctrl.sc2
+    bootctrl.$(PRODUCT_PLATFORM)
 
+PRODUCT_STATIC_BOOT_CONTROL_HAL := \
+    bootctrl.$(PRODUCT_PLATFORM) \
+    libgptutils \
+    libz \
+    libcutils
 
 PRODUCT_PACKAGES += \
     otapreopt_script \

@@ -1,6 +1,6 @@
 #
-# Copyright (C) 2023 The Android Open Source Project
-# Copyright (C) 2023 SebaUbuntu's TWRP device tree generator
+# Copyright (C) 2024 The Android Open Source Project
+# Copyright (C) 2024 SebaUbuntu's TWRP device tree generator
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -14,14 +14,14 @@ ALLOW_MISSING_DEPENDENCIES := true
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
     system \
-    system_ext \
-    vendor \
+    boot \
     odm \
-    product \
-    vbmeta \
     vbmeta_system \
+    product \
+    system_ext \
     recovery \
-    boot
+    vendor \
+    vbmeta
 BOARD_USES_RECOVERY_AS_BOOT := true
 
 # Architecture
@@ -38,11 +38,11 @@ TARGET_USES_64_BIT_BINDER := true
 OVERRIDE_TARGET_FLATTEN_APEX := true
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := t982_ar31a8
+TARGET_BOOTLOADER_BOARD_NAME := ohm
 TARGET_NO_BOOTLOADER := true
 
 # Display
-TARGET_SCREEN_DENSITY := 240
+#TARGET_SCREEN_DENSITY := 240
 
 # Kernel
 BOARD_BOOTIMG_HEADER_VERSION := 3
@@ -57,9 +57,7 @@ TARGET_FORCE_PREBUILT_KERNEL := true
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
 BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
-#BOARD_DTB_OFFSET           := 0xffffffffffe88000
-#BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
-#BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+
 
 # Partitions
 #BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
@@ -72,11 +70,12 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
 BOARD_SUPER_PARTITION_SIZE := 9126805504 # TODO: Fix hardcoded value
 BOARD_SUPER_PARTITION_GROUPS := tcl_dynamic_partitions
-BOARD_TCL_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor odm
+BOARD_TCL_DYNAMIC_PARTITIONS_PARTITION_LIST := product system system_ext vendor odm
 BOARD_TCL_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 
 # Platform
-TARGET_BOARD_PLATFORM := sc2
+#TARGET_BOARD_PLATFORM := sc2
+TARGET_BOARD_PLATFORM := t982_ar31a8
 
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -101,8 +100,6 @@ PLATFORM_VERSION := 16.1.0
 # TWRP Configuration
 TW_THEME := landscape_hdpi
 #TW_THEME := portrait_hdpi
-#TARGET_SCREEN_HEIGHT := 720
-#TARGET_SCREEN_WIDTH := 1280
 TW_EXTRA_LANGUAGES := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
