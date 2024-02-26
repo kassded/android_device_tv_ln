@@ -27,14 +27,14 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
     android.hardware.boot@1.0-impl.recovery \
     android.hardware.boot@1.0-service \
-    bootctrl.$(PRODUCT_PLATFORM) \
-    bootctrl.$(PRODUCT_PLATFORM).recovery \
+    bootctrl.t982_ar31a8 \
+    bootctrl.t982_ar31a8.recovery \
     
 PRODUCT_PACKAGES += \
-    bootctrl.$(PRODUCT_PLATFORM)
+    bootctrl.t982_ar31a8
 
 PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.$(PRODUCT_PLATFORM) \
+    bootctrl.t982_ar31a8 \
     libgptutils \
     libz \
     libcutils
