@@ -46,7 +46,7 @@ TARGET_NO_BOOTLOADER := true
 
 # Kernel
 BOARD_BOOTIMG_HEADER_VERSION := 3
-BOARD_KERNEL_CMDLINE := androidboot.dynamic_partitions=true androidboot.dtbo_idx=0 androidboot.boot_devices=soc/fe08c000.mmc use_uvm=1 twrpfastboot=1 buildvariant=eng
+#BOARD_KERNEL_CMDLINE := androidboot.dynamic_partitions=true androidboot.dtbo_idx=0 androidboot.boot_devices=soc/fe08c000.mmc use_uvm=1 twrpfastboot=1 buildvariant=eng
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 BOARD_KERNEL_IMAGE_NAME := Image
 TARGET_KERNEL_CONFIG := t982_ar31a8_defconfig
@@ -55,8 +55,8 @@ TARGET_KERNEL_SOURCE := kernel/tcl/t982_ar31a8
 # Kernel - prebuilt
 TARGET_FORCE_PREBUILT_KERNEL := true
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
-BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
+#TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
+#BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 
 
 # Partitions
