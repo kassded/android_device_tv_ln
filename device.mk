@@ -27,11 +27,11 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
     android.hardware.boot@1.0-impl.recovery \
     android.hardware.boot@1.0-service \
-    bootctrl.t982_ar31a8 \
-    bootctrl.t982_ar31a8.recovery \
+    bootctrl.sc2 \
+    bootctrl.sc2.recovery \
     
 PRODUCT_PACKAGES += \
-    bootctrl.t982_ar31a8 \  
+    bootctrl.sc2 \  
 
 PRODUCT_PACKAGES += \
     otapreopt_script \
