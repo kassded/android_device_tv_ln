@@ -1,9 +1,0 @@
-on early-init
-    symlink /dev/block/bootloader0 /dev/block/platform/${ro.boot.boot_devices}/by-name/bootloader_a
-    symlink /dev/block/bootloader1 /dev/block/platform/${ro.boot.boot_devices}/by-name/bootloader_b
-
-service vendor.boot-hal-1-1 /vendor/bin/hw/android.hardware.boot@1.1-service.droidlogic
-    user root
-    group root
-    disabled
-    seclabel u:r:recovery:s0
