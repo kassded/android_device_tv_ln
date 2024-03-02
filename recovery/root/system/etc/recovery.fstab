@@ -1,0 +1,21 @@
+# Android fstab file.
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+
+#<src>                                                 <mnt_point>                        <type>  <mnt_flags and options>                              <fs_mgr_flags>
+system                                                  /system                           ext4    ro,barrier=1                                         wait,slotselect,logical,first_stage_mount
+system_ext                                              /system_ext                       ext4    ro,barrier=1                                         wait,slotselect,logical,first_stage_mount
+vendor                                                  /vendor                           ext4    ro,barrier=1                                         wait,slotselect,logical,first_stage_mount
+product                                                 /product                          ext4    ro,barrier=1                                         wait,slotselect,logical,first_stage_mount
+odm                                                     /odm                              ext4    ro,barrier=1                                         wait,slotselect,logical,first_stage_mount
+
+/dev/block/by-name/metadata                             /metadata                         ext4    noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic    wait,check,formattable,first_stage_mount
+
+/dev/block/by-name/userdata                                     /data                             ext4    noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic    latemount,wait,check,quota,formattable,reservedsize=32M,first_stage_mount
+/dev/block/param                                        /mnt/vendor/param                 ext4    noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic    wait,check,quota,formattable
+/dev/block/factory                                      /mnt/vendor/factory               vfat    noatime,nodiratime,nosuid,noexec,dmask=0022                      wait,check
+/dev/block/platform/soc/fe08c000.mmc/by-name/misc       /misc                             emmc    defaults                                                         defaults
+
+#/devices/platform/soc/fe08a000.sd/mmc_host/mmc1/mmc1:*                                    auto    auto    defaults                                             display=SD
+/devices/platform/soc/soc:usb@fde00000/fde00000.dwc3/xhci-hcd.0.auto/sda1                 auto    auto    defaults                                             display=USB
+
