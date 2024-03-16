@@ -8,20 +8,7 @@
 DEVICE_PATH := device/tcl/t982_ar31a8
 
 # For building with minimal manifest
-ALLOW_MISSING_DEPENDENCIES := true
 
-# A/B
-AB_OTA_UPDATER := true
-AB_OTA_PARTITIONS += \
-    system \
-    system_ext \
-    vendor \
-    odm \
-    product \
-    vbmeta \
-    vbmeta_system \
-    recovery \
-    boot
 BOARD_USES_RECOVERY_AS_BOOT := true
 
 # Architecture
