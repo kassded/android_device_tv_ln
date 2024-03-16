@@ -110,3 +110,4 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_IGNORE_MISC_WIPE_DATA := true  #是否在 wipe data 时忽略 misc
+TARGET_USES_LOGD := true # 是否启用 logcat
