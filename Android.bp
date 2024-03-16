@@ -16,9 +16,6 @@ soong_namespace {
 
 soong_namespace {
 }
-package {
-    default_applicable_licenses: ["Android-Apache-2.0"],
-}
 cc_library {
     name: "bootctrl.sc2",
     defaults: ["bootctrl_hal_defaults"],
