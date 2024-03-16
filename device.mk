@@ -36,6 +36,10 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.4-service.clearkey \
     android.hardware.drm@1.3-service.widevine
 
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.0-service \
+    android.hardware.health@2.1-service
+
 # Boot control HAL
 PRODUCT_PACKAGES += \
     otapreopt_script \
