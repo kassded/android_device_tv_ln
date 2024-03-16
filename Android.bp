@@ -7,3 +7,20 @@
 
 soong_namespace {
 }
+//
+// Copyright (C) 2024 The Android Open Source Project
+// Copyright (C) 2024 SebaUbuntu's TWRP device tree generator
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+soong_namespace {
+}
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+cc_library {
+    name: "bootctrl.sc2",
+    defaults: ["bootctrl_hal_defaults"],
+    static_libs: ["libgptutils.crosshatch"],
+}
