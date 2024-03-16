@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/tcl/t982_ar31a8
+#DEVICE_PATH := device/tcl/t982_ar31a8
 
 # For building with minimal manifest
 
