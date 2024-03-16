@@ -11,7 +11,6 @@ cc_library {
     defaults: ["bootctrl_hal_defaults"],
     static_libs: ["libgptutils.tcl_sc2"],
 }
-service.droidlogic
 cc_library_shared {
     name: "android.hardware.boot@1.1-impl-droidlogic",
     stem: "android.hardware.boot@1.0-impl-1.1-droidlogic",
