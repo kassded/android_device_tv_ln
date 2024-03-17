@@ -15,7 +15,7 @@
 /vbmeta_system     emmc     /dev/block/vbmeta_system     flags=display="vbmeta_system";slotselect;backup=1;flashimg=1
 
 /misc              emmc     /dev/block/by-name/misc      flags=display="misc";backup=1;flashimg=1
-/bootloader        emmc     /dev/block/bootloader        flags=display="bootloader";backup=1;flashimg=1
+/bootloader        emmc     /dev/block/bootloader        flags=display="bootloader";backup=1;slotselect;flashimg=1
 /logo              emmc     /dev/block/logo              flags=display="logo";backup=1;slotselect;flashimg=1
 /misc              emmc     /dev/block/misc              flags=display="misc";backup=1;flashimg=1
 /dtb               emmc     /dev/block/dtbo              flags=display="dtb";backup=1;slotselect;flashimg=1
