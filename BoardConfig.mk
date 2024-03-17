@@ -83,7 +83,7 @@ BOARD_TCL_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 
 # Platform
 TARGET_BOARD_PLATFORM := sc2
-#TARGET_BOARD_PLATFORM := t982_ar31a8
+TARGET_BOARD_PLATFORM_GPU := mali-g52mp2
 
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -105,6 +105,11 @@ PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
 
+# Debug
+TARGET_USES_LOGD := true # 是否启用 logcat
+TWRP_INCLUDE_LOGCAT := true
+TWRP_EVENT_LOGGING := false
+
 # TWRP Configuration
 TW_THEME := landscape_hdpi
 #TW_THEME := portrait_hdpi
@@ -115,4 +120,4 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_IGNORE_MISC_WIPE_DATA := true  #是否在 wipe data 时忽略 misc
-TARGET_USES_LOGD := true # 是否启用 logcat
+
