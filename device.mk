@@ -42,9 +42,7 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl.recovery \
     bootctrl.sc2 \
     bootctrl.sc2.recovery \
-    
-PRODUCT_PACKAGES += \
-    bootctrl.sc2 \  
+     
 
 PRODUCT_PACKAGES += \
     otapreopt_script \
