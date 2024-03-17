@@ -15,6 +15,10 @@
 #$(call inherit-product, vendor/twrp/config/common.mk)
 
 LOCAL_PATH := device/tcl/t982_ar31a8
+
+PRODUCT_PLATFORM := sc2
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
@@ -40,8 +44,8 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl-wrapper.recovery \
     android.hardware.boot@1.0-impl-wrapper \
     android.hardware.boot@1.0-impl.recovery \
-    bootctrl.sc2 \
-    bootctrl.sc2.recovery \
+    bootctrl.$(PRODUCT_PLATFORM) \
+    bootctrl.$(PRODUCT_PLATFORM).recovery \
      
 
 PRODUCT_PACKAGES += \
