@@ -86,6 +86,7 @@ TARGET_BOARD_PLATFORM := sc2
 TARGET_BOARD_PLATFORM_GPU := mali-g52mp2
 
 # Recovery
+RECOVERY_SDCARD_ON_DATA := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_SUPPRESS_SECURE_ERASE := true
@@ -116,6 +117,7 @@ TWRP_EVENT_LOGGING := false
 # TWRP Configuration
 TW_THEME := landscape_hdpi
 #TW_THEME := portrait_hdpi
+TW_BRIGHTNESS_PATH := "/brightness"
 TW_EXTRA_LANGUAGES := true
 TW_DEFAULT_LANGUAGE := zh_CN  #设置默认语言为简体中文
 TW_SCREEN_BLANK_ON_BOOT := true
@@ -123,4 +125,6 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_IGNORE_MISC_WIPE_DATA := true  #是否在 wipe data 时忽略 misc
-
+TW_EXCLUDE_TWRPAPP := true
+TW_INCLUDE_NTFS_3G := true
+TW_NO_SCREEN_TIMEOUT := true
