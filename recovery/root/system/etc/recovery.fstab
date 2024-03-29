@@ -18,4 +18,3 @@ odm                                                     /odm                    
 
 #/devices/platform/soc/fe08a000.sd/mmc_host/mmc1/mmc1:*                                    auto    auto    defaults                                             display=SD
 /devices/platform/soc/soc:usb@fde00000/fde00000.dwc3/xhci-hcd.0.auto/sda1                 auto    auto    defaults                                             display=USB
-
