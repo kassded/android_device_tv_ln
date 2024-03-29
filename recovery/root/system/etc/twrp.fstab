@@ -20,7 +20,7 @@
 /misc              emmc     /dev/block/misc              flags=display="misc";backup=1;flashimg=1
 /dtb               emmc     /dev/block/dtbo              flags=display="dtb";backup=1;slotselect;flashimg=1
 
-/cache             ext4     /dev/block/cache             flags=backup=1;wipeingui;wipeduringfactoryreset
+/cache             ext4     /dev/block/cache             flags=backup=1;wipeingui;wipeduringfactoryreset;encryptable=footer
 /data              ext4     /dev/block/userdata          flags=display="data";backup=1
 /metadata          ext4     /dev/block/metadata          flags=display="metadata";backup=1
 
@@ -39,6 +39,4 @@
 # Removable storage
 #/dev/block/sda1         auto    auto    defaults        defaults
 #/usb_otg           auto     /dev/block/sda1              flags=storage;wipeingui;removable
-
-/external_sd       auto     /dev/block/mmcblk1p1    /dev/block/mmcblk1    flags=display="Micro SD card";storage;wipeingui;removable
 /usb-otg           auto     /dev/block/sda1         /dev/block/sda        flags=display="USB-OTG";storage;wipeingui;removable
