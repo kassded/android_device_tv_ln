@@ -1,39 +1,16 @@
-#
-# Copyright (C) 2024 The Android Open Source Project
-# Copyright (C) 2024 SebaUbuntu's TWRP device tree generator
-#
-# SPDX-License-Identifier: Apache-2.0
-#
+# Inherit from common AOSP config
+$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
-# Configure base.mk
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
+LOCAL_PATH := device/amlogic/ah212
 
-# Configure core_64_bit_only.mk
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
-
-# Configure twrp
-#$(call inherit-product, vendor/twrp/config/common.mk)
-
-LOCAL_PATH := device/tcl/t982_ar31a8
-
-PRODUCT_PLATFORM := sc2
+PRODUCT_PLATFORM := ah212
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# A/B
-AB_OTA_POSTINSTALL_CONFIG += \
-    RUN_POSTINSTALL_system=true \
-    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-    FILESYSTEM_TYPE_system=ext4 \
-    POSTINSTALL_OPTIONAL_system=true
-
-#
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-service \
-    android.hardware.health@2.1-service \
-    android.hardware.boot@1.0-impl-1.1.droidlogic
-
-# Boot control HAL
-PRODUCT_PACKAGES += \
+    otapreopt_script \
+    update_engine \
+    update_engine_sideload \
+    update_verifier \
     android.hardware.boot@1.0-impl \
     android.hardware.boot@1.0-service \
     android.hardware.boot@1.0-impl-wrapper.recovery \
@@ -41,23 +18,6 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl.recovery \
     bootctrl.$(PRODUCT_PLATFORM) \
     bootctrl.$(PRODUCT_PLATFORM).recovery \
-     
-PRODUCT_PACKAGES_DEBUG += \
-    bootctl
-
-# boot_control HAL and its dependencies.
-PRODUCT_PACKAGES += \
-    bootctrl.trinket \
-    libgptutils \
-    libz \
-    libcutils
-
-PRODUCT_PACKAGES += \
-    otapreopt_script \
-    cppreopts.sh \
-    update_engine \
-    update_verifier \
-    update_engine_sideload
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -66,5 +26,3 @@ PRODUCT_SOONG_NAMESPACES += \
 # tzdata
 PRODUCT_PACKAGES_ENG += \
     tzdata_twrp
-
-
