@@ -45,6 +45,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
 
+# boot_control HAL and its dependencies.
+PRODUCT_PACKAGES += \
+    bootctrl.trinket \
+    libgptutils \
+    libz \
+    libcutils
+
 PRODUCT_PACKAGES += \
     otapreopt_script \
     cppreopts.sh \
@@ -60,9 +67,4 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES_ENG += \
     tzdata_twrp
 
-# boot_control HAL and its dependencies.
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.trinket \
-    libgptutils \
-    libz \
-    libcutils
+
