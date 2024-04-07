@@ -1,4 +1,4 @@
-# Android device tree for TCL
+# Android device tree for ln
 
 ```
 #
